@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>용인고등학교 3D 길찾기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="ui">
+        <div class="top-bar">
+            <div class="panel">
+                <h1>용인고등학교 3D 길찾기</h1>
+                <div class="desc">Dijkstra 알고리즘을 사용했습니다.</div>
+                <div class="controls">
+                    <div class="target-switch" role="group" aria-label="선택할 위치">
+                        <span class="target-indicator" aria-hidden="true"></span>
+                        <button id="currentButton" class="target-btn active" type="button" aria-pressed="true">출발지
+                            선택</button>
+                        <button id="destinationButton" class="target-btn" type="button" aria-pressed="false">도착지
+                            선택</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="selected-row">
+                    <span>출발</span>
+                    <div class="room-search-wrap">
+                        <input id="currentResult" class="badge room-search" type="text" placeholder="방 검색" aria-label="출발지 검색" autocomplete="off">
+                        <button id="clearCurrentResult" class="room-search-clear" type="button" aria-label="출발지 선택 취소" hidden></button>
+                    </div>
+                    <span>도착</span>
+                    <div class="room-search-wrap">
+                        <input id="destinationResult" class="badge room-search" type="text" placeholder="방 검색" aria-label="도착지 검색" autocomplete="off">
+                        <button id="clearDestinationResult" class="room-search-clear" type="button" aria-label="도착지 선택 취소" hidden></button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="goBtn" class="btn-go" type="button" disabled>경로 안내</button>
+        </div>
+    </div>
+
+    <div id="canvas-wrap"></div>
+
+    <div id="status" class="status"></div>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+
+</html>
